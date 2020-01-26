@@ -9,6 +9,8 @@ public class Mesto {
     HashMap<Integer, LinkedList<Razdalja>> sosedje;
     LinkedList<Integer> sosedjeIndex;
     double oldOrganski, oldPlastika, oldPapir;
+    LinkedList<Mesto> shortestPath;
+    double distSource=Double.MAX_VALUE;
 
     public Mesto (int i, double x1, double y1, double o, double p, double pa){
 
@@ -22,11 +24,19 @@ public class Mesto {
         index = i;
         sosedje = new HashMap<>();
         sosedjeIndex = new LinkedList<>();
+        shortestPath=new LinkedList<>();
+
 
         oldOrganski = o;
         oldPlastika = p;
         oldPapir = p;
 
+    }
+
+    public Mesto(){
+        sosedjeIndex=new LinkedList<>();
+        sosedje=new HashMap<>();
+        shortestPath=new LinkedList<>();
     }
 
     public double getOdpadki (int tip){
@@ -35,6 +45,30 @@ public class Mesto {
             case 2: return plastika;
             default: return papir;
         }
+    }
+
+    public void setDistSource(double distSource) {
+        this.distSource = distSource;
+    }
+
+    public double getDistSource() {
+        return distSource;
+    }
+
+    public HashMap<Integer, LinkedList<Razdalja>> getSosedje() {
+        return sosedje;
+    }
+
+    public void setSosedje(HashMap<Integer, LinkedList<Razdalja>> sosedje) {
+        this.sosedje = sosedje;
+    }
+
+    public LinkedList<Mesto> getShortestPath() {
+        return shortestPath;
+    }
+
+    public void setShortestPath(LinkedList<Mesto> shortestPath) {
+        this.shortestPath = shortestPath;
     }
 
     public void resetOrganski (){

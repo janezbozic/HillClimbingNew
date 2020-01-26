@@ -26,6 +26,20 @@ public class Solution {
         initVsaMesta();
     }
 
+    public Solution (LinkedList<Tovornjak> tOrganski, LinkedList<Tovornjak> tPlastika, LinkedList<Tovornjak> tPapir, LinkedList<Mesto> m, double mc){
+        this.tOrganski = tOrganski;
+        this.tPlastika = tPlastika;
+        this.tPapir = tPapir;
+        maxCap = mc;
+
+        cena = 0;
+        mesta = m;
+        vsaMestaOrgranski = new double [mesta.size()];
+        vsaMestaPlastika = new double [mesta.size()];
+        vsaMestaPapir = new double [mesta.size()];
+        initVsaMesta();
+    }
+
     public Solution (LinkedList<Mesto> m, double mc, Solution prevSol){
 
         maxCap = mc;

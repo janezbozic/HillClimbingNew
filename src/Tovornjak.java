@@ -11,10 +11,16 @@ public class Tovornjak {
     public Tovornjak (int vs){
         vrstaSmeti = vs;
         pot = new LinkedList<>();
-        pot.add(1);
+        //pot.add(1);
         pobrano = 0;
         cas = 0;
         dolzinaPoti = 0;
+    }
+
+    public void clear(){
+        this.cas=0;
+        this.dolzinaPoti=0;
+        this.pobrano=0;
     }
 
     public int getVrstaSmeti() {
